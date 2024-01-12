@@ -1,9 +1,9 @@
-let houses = [
+const houses = [
     {
         houseImg: 'House21.png',
         header: 'Атаман',
         square: '108 кв.м',
-        size: '7x9 м',
+        size: '5x6 м',
         constrPeriod: '16 дней',
         numRooms: '5',
         houseType: 'Одноэтажный',
@@ -21,48 +21,50 @@ let houses = [
     },
     {
         houseImg: 'House21.png',
-        header: 'Атаман',
+        header: 'Хорунжий',
         square: '108 м',
         size: '7x9',
         constrPeriod: '16 дней',
         numRooms: '5',
-        houseType: 'Каркасный',
+        houseType: 'С мансардой',
         price: '1 780 000'
     },
     {
         houseImg: 'House21.png',
-        header: 'Атаман',
+        header: 'Кошевой',
         square: '108 м',
         size: '7x9',
         constrPeriod: '16 дней',
         numRooms: '5',
-        houseType: 'Каркасный',
+        houseType: 'С цокольным этажом',
         price: '1 780 000'
     },
     {
         houseImg: 'House21.png',
-        header: 'Атаман',
+        header: 'Есаул',
         square: '108 м',
         size: '7x9',
         constrPeriod: '16 дней',
         numRooms: '5',
-        houseType: 'Каркасный',
+        houseType: 'С гаражом',
         price: '1 780 000'
     },
     {
         houseImg: 'House21.png',
-        header: 'Атаман',
+        header: 'Урядник',
         square: '108 м',
         size: '7x9',
         constrPeriod: '16 дней',
         numRooms: '5',
-        houseType: 'Каркасный',
+        houseType: 'Трехэтажные',
         price: '1 780 000'
     }
 ];
 
+const popularproj = document.querySelector(".popularproj");
+
 function showAllData(housesData){
-    let popularproj = document.querySelector(".popularproj");
+    // let popularproj = document.querySelector(".popularproj");
     let temp = null;
 
     for (let i = 0; i < housesData.length; i++){
@@ -147,10 +149,14 @@ function createCard(cardData){
     return card;
 }
 
+function clearData(container){
+    container.innerHTML = "";
+}
+
 showAllData(houses);
 
-document.querySelector(".menu__watchall-href").addEventListener("click", function(e){
-    let popularproj = document.getElementsByClassName(".popularproj");
-    popularproj[0].innerHTML = "";
+document.querySelector(".menu__watchall-href").onclick = function(e){
+    // let popularproj = document.querySelector(".popularproj");
+    clearData(popularproj);
     showAllData();
-});
+};
