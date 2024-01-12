@@ -70,7 +70,7 @@ document.querySelector(".menu__watchall").onclick = function(e){
 
 let cats = document.querySelectorAll(".menu__item-default");
 for (let i = 0; i < cats.length; i++){
-    cats[i].addEventListener("click", catsClick(cats[i]));
+    cats[i].addEventListener("click", () => catsClick(cats[i]));
 }
 
 function showAllData(housesData){
