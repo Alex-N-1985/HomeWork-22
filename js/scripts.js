@@ -61,19 +61,6 @@ let houses = [
     }
 ];
 
-showAllData(houses);
-
-document.querySelector(".menu__watchall-href").addEventListener("click", function(e){
-    let popularproj = document.querySelector(".popularproj");
-    clearContainer(popularproj);
-});
-
-function clearContainer(container){
-    while(container.firstChild()){
-        container.removeChild(container.firstChild());
-    }
-}
-
 function showAllData(housesData){
     let popularproj = document.querySelector(".popularproj");
     let temp = null;
@@ -159,3 +146,11 @@ function createCard(cardData){
 
     return card;
 }
+
+showAllData(houses);
+
+document.querySelector(".menu__watchall-href").addEventListener("click", function(e){
+    let popularproj = document.getElementsByClassName(".popularproj");
+    popularproj[0].innerHTML = "";
+    showAllData();
+});
