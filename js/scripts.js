@@ -2,22 +2,22 @@ let houses = [
     {
         houseImg: 'House21.png',
         header: 'Атаман',
-        square: '108 м',
-        size: '7x9',
+        square: '108 кв.м',
+        size: '7x9 м',
         constrPeriod: '16 дней',
         numRooms: '5',
-        houseType: 'Каркасный',
+        houseType: 'Одноэтажный',
         price: '1 780 000'
     },
     {
         houseImg: 'House21.png',
-        header: 'Атаман',
-        square: '108 м',
-        size: '7x9',
-        constrPeriod: '16 дней',
+        header: 'Гетьман',
+        square: '120 кв.м',
+        size: '7x9 м',
+        constrPeriod: '21 дней',
         numRooms: '5',
-        houseType: 'Каркасный',
-        price: '1 780 000'
+        houseType: 'Одноэтажный',
+        price: '2 000 000'
     },
     {
         houseImg: 'House21.png',
@@ -61,12 +61,27 @@ let houses = [
     }
 ];
 
-let popularproj = document.querySelector(".popularproj");
-let temp = null;
+showAllData(houses);
 
-for (let i = 0; i < houses.length; i++){
-    temp = createCard(houses[i]);
-    popularproj.appendChild(temp);
+document.querySelector(".menu__watchall-href").addEventListener("click", function(e){
+    let popularproj = document.querySelector(".popularproj");
+    clearContainer(popularproj);
+});
+
+function clearContainer(container){
+    while(container.firstChild()){
+        container.removeChild(container.firstChild());
+    }
+}
+
+function showAllData(housesData){
+    let popularproj = document.querySelector(".popularproj");
+    let temp = null;
+
+    for (let i = 0; i < housesData.length; i++){
+        temp = createCard(housesData[i]);
+        popularproj.appendChild(temp);
+    }
 }
 
 function createCard(cardData){
