@@ -54,12 +54,10 @@
 .menu__watchall {
     display: inline-block;
     margin: 5px;
-}
-
-.menu__watchall-href {
     color: #F7D047;
     font-size: 18px;
     text-decoration-style: dotted;
+    border: 1px solid black;
 }
 
 .card {

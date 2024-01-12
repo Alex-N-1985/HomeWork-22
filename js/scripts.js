@@ -61,15 +61,23 @@ const houses = [
     }
 ];
 
-const popularproj = document.querySelector(".popularproj");
+showAllData(houses);
+
+document.querySelector(".menu__watchall").onclick = function(e){
+    clearData(document.querySelector(".popularproj"));
+    showAllData(houses);
+};
+
+let cats = document.querySelectorAll(".menu__item-default");
+for (let i = 0; i < cats.length; i++){
+    cats[i].addEventListener("click", catsClick(cats[i]));
+}
 
 function showAllData(housesData){
-    // let popularproj = document.querySelector(".popularproj");
     let temp = null;
-
     for (let i = 0; i < housesData.length; i++){
         temp = createCard(housesData[i]);
-        popularproj.appendChild(temp);
+        document.querySelector(".popularproj").appendChild(temp);
     }
 }
 
@@ -153,10 +161,19 @@ function clearData(container){
     container.innerHTML = "";
 }
 
-showAllData(houses);
+function findHouseDataByType(houseType){
+    clearData(document.querySelector(".popularproj"));
+    let fHouses = houses.filter(function(item){
+        return item.houseType == houseType;
+    });
+    let temp = null;
+    for (let i = 0; i < fHouses.length; i++){
+        temp = createCard(fHouses[i]);
+        document.querySelector(".popularproj").appendChild(temp);
+    }
+}
 
-document.querySelector(".menu__watchall-href").onclick = function(e){
-    // let popularproj = document.querySelector(".popularproj");
-    clearData(popularproj);
-    showAllData();
-};
+function catsClick(sender){
+    console.log(sender.innerText);
+    findHouseDataByType(sender.innerText);
+}
